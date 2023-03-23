@@ -5,9 +5,14 @@ const startCells = [
     '', '', '', '', '', '', '', '', ''
 ];
 
-function ceateBoard() {
+function createBoard() {
     startCells.forEach((cell, index) => {
         const cellElenent = document.createElement('div')
+
         cellElenent.classList.add('square')
+        gameBoard.append(cellElenent)
     })
+
 }
+
+createBoard();
