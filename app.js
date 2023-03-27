@@ -45,5 +45,21 @@ function checkScore() {
 
     winningCombos.forEach(array => {
         const circleWins = array.every(cell => allSquares[cell].firstChild?.classList.contains('circle'))
+
+        if(circleWins) {
+            infoDisplay.textContent = 'Нулик виграв!';
+            allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))
+            return;
+        }
+    })
+
+    winningCombos.forEach(array => {
+        const crossWins = array.every(cell => allSquares[cell].firstChild?.classList.contains('cross'))
+
+        if(crossWins) {
+            infoDisplay.textContent = 'Хрестик виграв!';
+            allSquares.forEach(square => square.replaceWith(square.cloneNode(true)))
+            return;
+        }
     })
 }
