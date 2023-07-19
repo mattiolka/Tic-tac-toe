@@ -1,65 +1,40 @@
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
 }
 
-#gameboard {
-    width: 300px;
-    height: 300px;
-    background-color: black;
-    display: flex;
-    flex-wrap: wrap;
-    border: solid 2px black;
+.card {
+  width: 140px;
+  height: 200px;
+  perspective: 1000px;
+  cursor: pointer; /* Добавляем курсор-указатель для указания на возможность клика */
 }
 
-.square {
-    width: 100px;
-    height: 100px;
-    background-color: white;
-    border: solid 2px black;
-    box-sizing: border-box ;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
 }
 
-
-.circle { 
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    border: 15px solid rgb(8, 8, 223);
-    box-sizing: border-box;    
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
 }
 
-.cross {
-    width: 90px;
-    height: 90px;
-    position: relative;
-    transform: rotate(45deg);
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
 }
 
-.cross:before,  .cross:after{
-    content: "";
-    position: absolute;
-    background-color: red;
+.card-front {
+  background-color: #f9f9f9;
 }
 
-.cross:before {
-    left: 50%;
-    width: 30%;
-    margin-left: -15%;
-    height: 100%;
-}
-
-.cross:after {
-    top: 50%;
-    height: 30%;
-    margin-top: -15%;
-    width: 100%;
+.card-back {
+  background-color: #ddd;
+  transform: rotateY(180deg);
 }
