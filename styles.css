@@ -8,7 +8,7 @@
   width: 140px;
   height: 200px;
   perspective: 1000px;
-  cursor: pointer; /* Добавляем курсор-указатель для указания на возможность клика */
+  cursor: pointer; 
 }
 
 .card-inner {
